@@ -10,7 +10,7 @@ module.exports = {
     singleUser: (req, res) => {
        const id = req.params.userId;
        if (id && usersData[id]) {
-         res.send(usersData[id]);
+         res.json(usersData[id]);
          res.status(200).send();
        } else {
          // Not Found

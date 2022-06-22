@@ -7,9 +7,6 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-const isAuthenticated  = require('./middlewares/authenticate')
-
-
 app.get(
   "/",
 (req, res) => {
@@ -17,7 +14,7 @@ app.get(
   });
 
 
-app.get('/users/:id', (req, res) => {
+app.get('/:id', (req, res) => {
      const id = req.params.id;
      if (id && usersData[id]) {
        res.send(usersData[id]);
@@ -28,15 +25,4 @@ app.get('/users/:id', (req, res) => {
      }
 })
 
-app.get('/login', isAuthenticated, function (req, res) {
-const id = req.params.id;
-if (id && usersData[id]) {
-  res.send(usersData[id]);
-  res.status(200).send();
-} else {
-  // Not Found
-  res.status(404).send();
-}
-})
-
-app.listen(port, ()=>{console.log(`running port: ${port}, ${usersData.map(user=>user.id )}`)})
+app.listen(port, ()=>{console.log(`running port: ${port}, ${users.map(user=>user.id )}`)})

@@ -7,7 +7,7 @@ module.exports = {
         res.json(users);
         res.status(200).send();
   },
-    singleUser: (req, res) => {
+    singleUser: (req, res.) => {
        const id = req.params.userId;
        if (id && usersData[id]) {
          res.send(usersData[id]);
