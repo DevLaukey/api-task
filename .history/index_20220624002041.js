@@ -1,5 +1,5 @@
 const express = require("express");
-const { singleUser } = require("./routes/getSingleUser");
+const { singleUser } = require("./controllers/singleUser");
 const usersData = require("./MOCK_DATA.json");
 
 const allUsers = require("./routes/routes");
