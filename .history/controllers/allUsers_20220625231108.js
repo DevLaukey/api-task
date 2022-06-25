@@ -8,13 +8,14 @@ exports.allUsers = (req, res) => {
     "Data": usersData
   }
 
-  const failure = {
+  const error = {
     "Status": 404,
     "Success": false,
     "Message": "Not found",
     "Data": []
   }
-  usersData.length ?res.send(success) : res.send(failure);
+  usersData ?res.send(success) : res.send(failure);
 
 
+  res.status(200).json(usersData);
 };

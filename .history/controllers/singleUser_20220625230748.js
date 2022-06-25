@@ -7,16 +7,11 @@ exports.singleUser = (req, res) => {
       "Status": 200,
       "Success": true,
       "Message": "Acquired successfully",
-      "Data": [usersData[id]]
+      "Data": usersData[id]
     }
     res.send(response);
   } else {
-      const failure = {
-        Status: 404,
-        Success: false,
-        Message: "Not found",
-        Data: [],
-      };
-    res.send(failure);
+    // Not Found
+    res.status(404).send();
   }
 };

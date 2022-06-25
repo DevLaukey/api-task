@@ -1,5 +1,4 @@
-const usersData = require("../MOCK_DATA.json");
-
+const usersData = []
 exports.allUsers = (req, res) => {
   const success = {
     "Status": 200,

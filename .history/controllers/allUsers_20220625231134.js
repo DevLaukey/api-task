@@ -5,7 +5,7 @@ exports.allUsers = (req, res) => {
     "Status": 200,
     "Success": true,
     "Message": "Acquired successfully",
-    "Data": usersData
+    "Data": [usersData]
   }
 
   const failure = {
@@ -14,7 +14,7 @@ exports.allUsers = (req, res) => {
     "Message": "Not found",
     "Data": []
   }
-  usersData.length ?res.send(success) : res.send(failure);
+  usersData ?res.send(success) : res.send(failure);
 
 
 };

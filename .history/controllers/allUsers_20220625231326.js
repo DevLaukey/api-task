@@ -1,5 +1,4 @@
-const usersData = require("../MOCK_DATA.json");
-
+const usersData = []
 exports.allUsers = (req, res) => {
   const success = {
     "Status": 200,
@@ -14,7 +13,7 @@ exports.allUsers = (req, res) => {
     "Message": "Not found",
     "Data": []
   }
-  usersData.length ?res.send(success) : res.send(failure);
+  usersData ?res.send(success) : res.send(failure);
 
 
 };

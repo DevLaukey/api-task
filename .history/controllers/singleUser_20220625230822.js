@@ -11,12 +11,7 @@ exports.singleUser = (req, res) => {
     }
     res.send(response);
   } else {
-      const failure = {
-        Status: 404,
-        Success: false,
-        Message: "Not found",
-        Data: [],
-      };
-    res.send(failure);
+    // Not Found
+    res.status(404).send();
   }
 };
