@@ -1,15 +1,16 @@
 const express = require("express");
-const singleUser= require("./routes/getSingleUser");
-const allUsers = require("./routes/getUsers");
+const { singleUser } = require("./routes/getSingleUser");
 const usersData = require("./MOCK_DATA.json");
+
+const {allUsers} = require("./routes/routes");
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use("/", allUsers);
+app.get("/", allUsers);
 
-app.use("/", singleUser);
+app.get("/users/:id", singleUser);
 
 // app.get("/login", function (req, res) {
 //   const id = req.params.id;

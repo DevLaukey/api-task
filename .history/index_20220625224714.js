@@ -7,9 +7,9 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use("/", allUsers);
+app.get("/", allUsers);
 
-app.use("/", singleUser);
+app.get("/users/:id", singleUser);
 
 // app.get("/login", function (req, res) {
 //   const id = req.params.id;
