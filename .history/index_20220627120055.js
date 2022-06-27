@@ -12,7 +12,6 @@ const port = process.env.PORT || 3000;
 app.use("/", allUsers);
 
 app.use("/", singleUser);
-app.use(express.json());
 
 app.use("/", login);
 app.use((req, res, next) => {
