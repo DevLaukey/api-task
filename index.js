@@ -1,20 +1,15 @@
 const express = require("express");
-const singleUser = require("./routes/getSingleUser");
-const allUsers = require("./routes/getUsers");
-const login = require("./routes/login");
-("./routes/getUsers");
+const router = require("./routes/router");
+
 const usersData = require("./MOCK_DATA.json");
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
-app.use("/", allUsers);
-
-app.use("/", singleUser);
 app.use(express.json());
+app.use("/",router);
 
-app.use("/", login);
 app.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;
