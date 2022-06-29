@@ -1,4 +1,8 @@
-get http://localhost:3000/
+get http://localhost:3001/users/
+
+
+###
+get http://localhost:3001/users/mjopp0@merriam-webster.com
 
 ###
 post http://localhost:3001/login
@@ -7,4 +11,12 @@ Content-Type: application/json
 {
 "email": "mjopp0@merriam-webster.com",
 "Password": "uehSLnl"
+}
+
+###
+post http://localhost:3001/register
+Content-Type: application/json
+
+{
+"id":5,"first_name":"Lexi","last_name":"Cumming","email":"lcumming4@si.edu","gender":"Female","Password":"Gawh1bZU3E"
 }
