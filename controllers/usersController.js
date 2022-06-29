@@ -42,9 +42,9 @@ module.exports = {
       });
     });
   },
-  login: (req, res) => {
+  login: async(req, res) => {
     const { email, Password } = req.body;
-    let pool = poolPromise();
+    let pool = await poolPromise();
     pool.query(`SELECT email,passwords FROM Users WHERE email = '${email}' `)
       .then((results) => {
         console.log(results.recordset);
@@ -53,8 +53,8 @@ module.exports = {
             res.json({
               status: 200,
               success: true,
-              message: "success",
-              results: results.recordset,
+              message: "logged In",
+              results: results.recordset[0].username,
             });
           } else {
             res.json({
