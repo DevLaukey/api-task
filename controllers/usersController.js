@@ -3,7 +3,6 @@ const mssql = require("mssql");
 const sqlConfig = require("../config/config");
 const { user } = require("../config/config");
 const poolPromise = require("../config/poolPromise");
-
 module.exports = {
   home: (req, res) => res.send("It feels good to be 127.0.0.1"),
 
@@ -65,10 +64,20 @@ module.exports = {
             });
           }
         }
+        else {
+          res.json({
+            status: 404,
+            success: false,
+            message: "User not found",
+            results:{}
+          })
+        }
       });
   },
 
   create: async (req, res) => {
+
+    console.log(data)
     let { id, first_name, last_name, email, gender, Password } = req.body;
     let pool = await poolPromise();
     pool
